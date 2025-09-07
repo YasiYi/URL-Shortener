@@ -12,4 +12,5 @@ urlpatterns = [
     path('token_refresh/', TokenRefreshView.as_view(), name="token_refresh"),
     path("shorten/", CreateShortUrlView.as_view(), name="create_short_url"),
     path("r/<str:short_url>/", RedirectView.as_view(), name="redirect"),
+    path('analytics/<str:short_url>/', AnalyticsView.as_view(), name='analytics'),
 ]
