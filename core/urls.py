@@ -3,8 +3,11 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from .Views.users_view import RegisterView
-from .Views.shortner_view import RedirectView, CreateShortUrlView
+from .views.users_view import RegisterView
+from .views.shortner_view import RedirectView, CreateShortUrlView
+from .views.analytics_view import AnalyticsView
+
+
 
 urlpatterns = [
     path('register/', RegisterView.as_view(), name="register"),

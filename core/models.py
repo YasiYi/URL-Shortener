@@ -35,3 +35,16 @@ class URL(models.Model):
 
     def __str__(self):
         return self.short_url
+    
+class Visit(models.Model):
+    url = models.ForeignKey(URL, on_delete=models.CASCADE, related_name='visits')
+    timestamp = models.DateTimeField(auto_now_add=True)
+    ip_address = models.GenericIPAddressField()
+    user_agent = models.TextField()
+    device_type = models.CharField(max_length=10)
+    browser = models.CharField(max_length=20)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['url', 'timestamp']),
+        ]
